@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react'
-import { JsonRpcProvider } from "@ethersproject/providers";
-import { useWeb3React } from "@web3-react/core";
-import { injected } from './_app';
-import { Box, Button, Center, Flex, HStack, Input, Text, VStack } from "@chakra-ui/react";
+import React, { useState, useEffect } from 'react'
+import { Box, Button, Center, Input, Text, VStack } from "@chakra-ui/react";
 import EthCrypto from 'eth-crypto';
 
-const index = () => {
+const Home = () => {
 
-    const [users, setUsers] = React.useState({
+    const [users, setUsers] = useState({
         user1: {
             privateKey: "",
             publicKey: "",
@@ -20,14 +17,14 @@ const index = () => {
         }
     })
 
-    const [encodedData, setEncodedData] = React.useState({
+    const [encodedData, setEncodedData] = useState({
         message: "",
         privateKeyOfSender: "",
         publicKeyOfReceiver: "",
         encodedMessage: ""
     })
 
-    const [decodedData, setDecodedData] = React.useState({
+    const [decodedData, setDecodedData] = useState({
         encodedMessage: "",
         privateKeyOfReceiver: "",
         message: "",
@@ -211,4 +208,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Home

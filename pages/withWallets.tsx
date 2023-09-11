@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { JsonRpcProvider } from "@ethersproject/providers";
 import { useWeb3React } from "@web3-react/core";
 import { injected } from './_app';
@@ -7,20 +7,20 @@ import { encrypt } from '@metamask/eth-sig-util';
 import { encode, decode } from "@alttiri/base85";
 
 
-const index = () => {
+const Home = () => {
 
     const { active, activate, deactivate, account } = useWeb3React<JsonRpcProvider>();
-    const [user, setUser] = React.useState({
+    const [user, setUser] = useState({
         publicKey: "",
     })
 
-    const [encodedData, setEncodedData] = React.useState({
+    const [encodedData, setEncodedData] = useState({
         message: "Important Data",
         publicKeyOfReceiver: "",
         encodedMessage: ""
     })
 
-    const [decodedData, setDecodedData] = React.useState({
+    const [decodedData, setDecodedData] = useState({
         encodedMessage: "",
         message: "",
         senderAddress: "",
@@ -235,4 +235,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Home
